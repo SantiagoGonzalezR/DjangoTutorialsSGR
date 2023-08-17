@@ -10,14 +10,16 @@
  <div class="col-md-8">
  <div class="card-body">
  <h5 class="card-title">
- {% if product.price > 100 %}
- <span style="color: tomato;"> {{product.name}} </span>
- {% else %}
  {{product.name}}
- {% endif %}
  </h5>
- <p class="card-text">{{product.description}}</p>
- <p class="card-text">{{product.price}}</p>
+ {% if product.price > 2000 %} 
+ <p class="card-text" style="color: red;">{{product.price}}</p> 
+ {% else %}
+ <p class="card-text">{{product.price}}</p> 
+ {% endif %}
+ {% for comment in product.comment_set.all %}
+ - {{ comment.description }}<br /> 
+ {% endfor %}   
  </div>
  </div>
  </div>
